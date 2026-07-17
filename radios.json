@@ -1,0 +1,107 @@
+[
+  {
+    "nombre": "FM La Patriada",
+    "url_streaming": "https://cdn.instream.audio:9107/stream",
+    "comentario": ""
+  },
+  {
+    "nombre": "Radio Con Vos",
+    "url_streaming": "https://server1.stweb.tv/rcvos/live/playlist.m3u8",
+    "comentario": ""
+  },
+  {
+    "nombre": "El Destape",
+    "url_streaming": "https://ipanel.instream.audio:7001/stream",
+    "comentario": ""
+  },
+  {
+    "nombre": "Futurock",
+    "url_streaming": "https://mdstrm.com/audio/5d9d019112cbbb45d6a50960/live.m3u8",
+    "comentario": ""
+  },
+  {
+    "nombre": "Radio 10",
+    "url_streaming": "https://radio10.stweb.tv/radio10/live/playlist.m3u8",
+    "comentario": ""
+  },
+  {
+    "nombre": "AM 530",
+    "url_streaming": "https://cdn.instream.audio:9288/stream",
+    "comentario": ""
+  },
+  {
+    "nombre": "AM 750",
+    "url_streaming": "https://27423.live.streamtheworld.com/AM750AAC.aac",
+    "comentario": ""
+  },
+  {
+    "nombre": "Nacional",
+    "url_streaming": "https://sa.mp3.icecast.magma.edge-access.net/sc_rad1",
+    "comentario": ""
+  },
+  {
+    "nombre": "FM 97.UNE",
+    "url_streaming": "https://streaming.provinciaradio.com.ar:3352/fm",
+    "comentario": ""
+  },
+  {
+    "nombre": "AM 1270",
+    "url_streaming": "https://streaming.provinciaradio.com.ar:7008/am",
+    "comentario": ""
+  },
+  {
+    "nombre": "Nacional Rock",
+    "url_streaming": "https://sa.mp3.icecast.magma.edge-access.net/sc_rad39",
+    "comentario": ""
+  },
+  {
+    "nombre": "La Rocka 80",
+    "url_streaming": "https://audiopanel.com.ar:8000/radio.aac",
+    "comentario": ""
+  },
+  {
+    "nombre": "Radio de Clásicos",
+    "url_streaming": "http://streamconex.com:8048",
+    "comentario": ""
+  },
+  {
+    "nombre": "La 2x4",
+    "url_streaming": "https://media.radios.ar:9270",
+    "comentario": ""
+  },
+  {
+    "nombre": "soma.fm Deep Space One",
+    "url_streaming": "https://ice3.somafm.com/deepspaceone-128-mp3",
+    "comentario": ""
+  },
+  {
+    "nombre": "soma.fm Dron Zone",
+    "url_streaming": "https://ice3.somafm.com/dronezone-128-mp3",
+    "comentario": ""
+  },
+  {
+    "nombre": "Nacional Clásica",
+    "url_streaming": "https://sa.mp3.icecast.magma.edge-access.net/sc_rad37",
+    "comentario": ""
+  },
+  {
+    "nombre": "la la la radio",
+    "url_streaming": "https://server.laradio.online/proxy/mauro_torres01?mp=/stream&1784293713719",
+    "comentario": ""
+  },
+  {
+    "nombre": "Radio Sudaca",
+    "url_streaming": "https://enelaire.ar/sudaca",
+    "comentario": ""
+  },
+  {
+    "nombre": "FM La Tribu",
+    "url_streaming": "https://icecast.zeclogiccloud.com.de/fmlatribu",
+    "comentario": ""
+  },
+  {
+    "nombre": "test",
+    "url_streaming": "",
+    "comentario": ""
+  }
+]
