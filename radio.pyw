@@ -1,12 +1,9 @@
-import ctypes
 import tkinter as tk
 import json, vlc, os, random
 import hashlib, colorsys
-import subprocess
+import ctypes, subprocess
 from datetime import date
-
-# Importamos la clase del segundo archivo (Asegúrate de que se llame visualizador.py o cambia este import)
-from visualizador import SquareVisualizer 
+from visualizador import AudioVisualizerWindow, SquareGraph
 
 # --- Configuración de rutas ---
 carpeta_actual = os.path.dirname(os.path.abspath(__file__))
@@ -42,15 +39,13 @@ class RadioApp:
         self.root.geometry("280x450")
         self.root.configure(bg="#1e1e1e")
         self.root.resizable(False, True)
-        self.root.attributes("-alpha", 0.965)
+        self.root.attributes("-alpha", 0.95)
 
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
         if os.path.exists(ruta_icono):
             self.root.iconphoto(False, tk.PhotoImage(file=ruta_icono))
 
-        # Referencia para controlar el visualizador abierto
         self.viz_window = None
-        # Color actual de la interfaz (por defecto gris si no hay radio reproduciendo)
         self.color_actual = "#d32f2f" 
 
         try:
@@ -76,21 +71,20 @@ class RadioApp:
 
         # Configuramos 4 columnas con el mismo peso
         for i in range(4):
-            bottom_frame.columnconfigure(i, weight=1)
+            bottom_frame.columnconfigure(i, weight=1, uniform="botones")
 
         btn_props = {"bg": "#1e1e1e", "fg": "white", "font": (FUENTE, 10), "bd": 0, "pady": 5}
         
         self.btn_toggle = tk.Button(bottom_frame, text="iniciar", command=self.toggle_reproduccion, **btn_props)
         self.btn_toggle.grid(row=0, column=0, padx=(0, 1), sticky="ew")
 
-        self.btn_random = tk.Button(bottom_frame, text="random", command=self.reproducir_aleatorio, **btn_props)
+        self.btn_random = tk.Button(bottom_frame, text="aleatorio", command=self.reproducir_aleatorio, **btn_props)
         self.btn_random.grid(row=0, column=1, padx=1, sticky="ew")
 
         self.btn_edit = tk.Button(bottom_frame, text="listado", command=self.editar_json, **btn_props)
         self.btn_edit.grid(row=0, column=2, padx=1, sticky="ew")
 
-        # NUEVO BOTÓN: Viz (Visualizador)
-        self.btn_viz = tk.Button(bottom_frame, text="viz", command=self.abrir_visualizador, **btn_props)
+        self.btn_viz = tk.Button(bottom_frame, text="visuales", command=self.abrir_visualizador, **btn_props)
         self.btn_viz.grid(row=0, column=3, padx=(1, 0), sticky="ew")
 
         # --- Interfaz: Zona Central (Scroll) ---
@@ -124,21 +118,20 @@ class RadioApp:
             print(f"No se pudo abrir el mezclador de volumen: {e}")
 
     def abrir_visualizador(self):
-        """Lanza el visualizador pasándole el color actual de la interfaz."""
-        # Si ya está abierto, lo traemos al frente, si no, creamos uno nuevo
+        """Lanza el visualizador genérico con el motor gráfico de cuadrados."""
         if self.viz_window and tk.Toplevel.winfo_exists(self.viz_window):
             self.viz_window.lift()
         else:
-            self.viz_window = SquareVisualizer(self.root, color=self.color_actual)
+            # Instanciamos la ventana pasándole el "cerebro" gráfico que queremos usar
+            self.viz_window = AudioVisualizerWindow( self.root, graph_class=SquareGraph, color=self.color_actual )
 
     def actualizar_color_botones(self, color):
         self.color_actual = color
         self.btn_toggle.config(fg=color)
         self.btn_random.config(fg=color)
         self.btn_edit.config(fg=color)
-        self.btn_viz.config(fg=color) # Cambia también el color de 'viz'
+        self.btn_viz.config(fg=color)
         
-        # Si el visualizador está abierto, le actualizamos el color en tiempo real
         if self.viz_window and tk.Toplevel.winfo_exists(self.viz_window):
             self.viz_window.cambiar_color(color)
 
